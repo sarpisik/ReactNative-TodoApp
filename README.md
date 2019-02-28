@@ -1,16 +1,21 @@
-# ReactNative Theme Boilerplate
+# ReactNative Todo App
 
-This project is a mix of **react-native & react-navigation & react-redux** libraries to make a dynamically changing theme color of react-native-expo app.
-I made it as a boilerplate starter app for my projects.
+React native Todo App built on Expo boilerplate with [ReactNative Theme Boilerplate](https://github.com/sarpisik/ReacNative-Theme-Boilerplate)
 
 ## Getting Started
 
-To get started "https://github.com/sarpisik/ReacNative-Theme-Boilerplate.git" copy then enter on your command.
+To get started open your command-line and follow the below steps
 
 ### Installing
 
 ```
-https://github.com/sarpisik/ReacNative-Theme-Boilerplate.git
+git clone https://github.com/sarpisik/ReactNative-TodoApp.git
+```
+
+then
+
+```
+cd ReacNative-Theme-Boilerplate
 ```
 
 And
