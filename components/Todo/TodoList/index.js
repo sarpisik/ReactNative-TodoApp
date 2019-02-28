@@ -1,19 +1,24 @@
-import React, { PureComponent } from 'react'
-import { Text, View, FlatList } from 'react-native'
-import TodoItem from '../TodoItem'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { FlatList } from 'react-native'
+import { connect } from 'react-redux'
+import TodoItem from '../../Todo/TodoItem'
 
-export default class TodoList extends PureComponent {
-  renderItem = ({ item }) => (
-    <TodoItem id={item.id} isDone={item.isDone} title={item.title} />
-  )
-
-  render() {
-    return (
-      <FlatList
-        data={this.props.data}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={this.renderItem}
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    data: state.todosState.todos,
+    extraData: state.themeState.theme.tertiary,
+    keyExtractor: (item, index) => index.toString(),
+    renderItem: ({ item }) => (
+      <TodoItem
+        color={state.themeState.theme.tertiary}
+        id={item.id}
+        isDone={item.isDone}
+        title={item.title}
       />
     )
   }
 }
+
+export default connect(mapStateToProps)(FlatList)

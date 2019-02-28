@@ -1,5 +1,5 @@
-import * as ACTIONS from '../constants'
-import { dark, navy, light } from '../themes'
+import ACTIONS from '../../constants'
+import { dark, navy, light } from '../../themes'
 
 const INITIAL_STATE = {
   theme: dark

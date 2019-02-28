@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Animated } from 'react-native'
 import { connect } from 'react-redux'
-import * as ACTIONS from '../../../constants'
+import ACTIONS from '../../../constants'
 
 export const mapStateToProps = state => ({
   theme: state.themeState.theme
