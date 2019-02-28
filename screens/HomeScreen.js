@@ -1,33 +1,30 @@
 import React from 'react'
-import { View } from 'react-native'
-import { Button } from 'react-native-elements'
-import { styles } from '../themes'
-import { withHeader, withTheme } from '../components'
+
+import { withHeader, withTheme, TodoList } from '../components'
+
+const TODOS = [
+  {
+    id: 0,
+    isDone: false,
+    title: 'todo 1'
+  },
+  {
+    id: 1,
+    isDone: false,
+    title: 'todo 2'
+  },
+  {
+    id: 2,
+    isDone: false,
+    title: 'todo 3'
+  }
+]
 
 class HomeScreen extends React.Component {
   changeHandler = type => this.props.changeTheme(type)
 
   render() {
-    const { colors } = this.props
-    return (
-      <View style={styles.container}>
-        <Button
-          containerStyle={{ margin: 10 }}
-          title="Light"
-          onPress={() => this.props.changeTheme('light')}
-        />
-        <Button
-          containerStyle={{ margin: 10 }}
-          title="Navy"
-          onPress={() => this.props.changeTheme('navy')}
-        />
-        <Button
-          containerStyle={{ margin: 10 }}
-          title="Dark"
-          onPress={() => this.props.changeTheme('dark')}
-        />
-      </View>
-    )
+    return <TodoList data={TODOS} />
   }
 }
 

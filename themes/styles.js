@@ -22,9 +22,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 0,
     paddingTop: 25
-    // width: '100%'
   },
-  headerText: { fontWeight: 'bold', fontSize: 20, fontFamily: 'space-mono' },
+  headerText: { fontWeight: 'bold', fontSize: 25, fontFamily: 'space-mono' },
+  row: {
+    width: '100%',
+    flexDirection: 'row'
+  },
+  rowItem: {
+    padding: 5
+  },
+  rowCheckBox: {
+    flex: 1
+  },
+  rowTitle: {
+    flex: 4,
+    justifyContent: 'center'
+  },
+  rowText: {
+    fontSize: 20
+  },
   textCenter: {
     textAlign: 'center'
   },

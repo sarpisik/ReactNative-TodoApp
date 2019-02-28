@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { Animated } from 'react-native'
 import { connect } from 'react-redux'
 import * as ACTIONS from '../../../constants'
-import ScreenContainer from '../../ScreenContainer'
-import { styles } from '../../../themes'
 
 export const mapStateToProps = state => ({
   theme: state.themeState.theme
@@ -46,7 +44,6 @@ export const WithTheme = WrappedComponent => {
       Animated.timing(this.animatedValue, {
         toValue: 1,
         duration: 400
-        // useNativeDriver: true
       }).start()
     }
 

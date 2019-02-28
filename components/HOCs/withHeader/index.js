@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { TouchableOpacity, Text } from 'react-native'
 import { Header, Icon } from 'react-native-elements'
 import { styles } from '../../../themes'
-import { ScreenContainer } from '../../index'
+import ScreenContainer from '../../ScreenContainer'
 
 let iconStyle = {
   // color: colors.text,
@@ -41,7 +41,7 @@ export default ({
         theme: { primary, secondary }
       } = this.props
       return (
-        <ScreenContainer colors={colors.secondary}>
+        <ScreenContainer>
           <ScreenContainer
             style={styles.headerContainer}
             colors={colors.primary}>
@@ -68,7 +68,7 @@ export default ({
               centerComponent={this.centerComponent(title)}
             /> */}
           </ScreenContainer>
-          <ScreenContainer {...styles.verticalCenter}>
+          <ScreenContainer colors={colors.secondary}>
             <WrappedComponent {...this.props} />
           </ScreenContainer>
         </ScreenContainer>
