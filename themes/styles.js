@@ -24,6 +24,14 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
   headerText: { fontWeight: 'bold', fontSize: 25, fontFamily: 'space-mono' },
+  removeButton: {
+    backgroundColor: 'red',
+    borderRadius: 0,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
   row: {
     width: '100%',
     flexDirection: 'row'

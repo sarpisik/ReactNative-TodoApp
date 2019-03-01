@@ -18,18 +18,27 @@ const INITIAL_STATE = {
       title: 'todo 3'
     }
   ],
-  selectedTodos: null
+  selectedTodos: []
 }
 
-const applyAddTodo = (state, action) => {}
+const applyAddTodo = (state, action) => ({
+  ...state,
+  todos: [...state.todos, action.todo]
+})
 
 const applyUpdateTodo = (state, action) => {}
 
-const applyDeleteTodo = (state, action) => {}
+const applyDeleteTodo = state => ({
+  ...state,
+  todos: state.todos.filter(item => {
+    if (!item.isDone) return item
+  }),
+  selectedTodos: []
+})
 
 const applyToggleTodo = (state, action) => {
-  const todos = state.todos.map((item, index) => {
-    if (index !== action.id) return item
+  const todos = state.todos.map(item => {
+    if (item.id !== action.id) return item
 
     return {
       ...item,
@@ -54,7 +63,7 @@ function todoReducer(state = INITIAL_STATE, action) {
     case ACTIONS.TODO_UPDATE:
       return applyUpdateTodo(state, action)
     case ACTIONS.TODO_DELETE:
-      return applyDeleteTodo(state, action)
+      return applyDeleteTodo(state)
     case ACTIONS.TODO_TOGGLE:
       return applyToggleTodo(state, action)
     default:
