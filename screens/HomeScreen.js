@@ -15,6 +15,10 @@ class HomeScreen extends React.Component {
   }
 }
 
-const HeaderHomeScreen = withHeader({ title: 'Home' })(HomeScreen)
+const HeaderHomeScreen = withHeader({
+  title: 'Home',
+  icon: 'plus',
+  navigateTo: 'AddTodo'
+})(HomeScreen)
 
 export default withTheme(HeaderHomeScreen)

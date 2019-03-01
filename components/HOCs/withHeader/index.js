@@ -1,31 +1,32 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { TouchableOpacity, Text } from 'react-native'
-import { Header, Icon } from 'react-native-elements'
+import { TouchableOpacity, Text, View } from 'react-native'
+import { Entypo } from '@expo/vector-icons'
 import { styles } from '../../../themes'
 import ScreenContainer from '../../ScreenContainer'
 
 let iconStyle = {
   // color: colors.text,
-  size: 25
+  size: 35
 }
 
 export default ({
   title = '',
   icon = '',
-  goBackTo = ''
+  navigateTo = ''
 }) => WrappedComponent => {
   class WithHeader extends PureComponent {
-    // goBack = () => {
-    //   const { history } = this.props
-    //   goBackTo ? history.replace(goBackTo) : history.goBack()
-    // }
+    onNavigate = () => {
+      this.props.navigation.navigate(navigateTo)
+    }
 
-    horizontalComponent = (name, onPress) => {
-      iconStyle.color = this.props.theme.secondary
+    horizontalComponent = (icon, onPress) => {
+      iconStyle.color = this.props.theme.tertiary
       return (
-        <TouchableOpacity onPress={onPress} style={styles.headerButton}>
-          <Icon name={name} {...iconStyle} />
+        <TouchableOpacity
+          onPress={() => this.onNavigate()}
+          style={styles.headerButton}>
+          <Text>{icon && <Entypo name={icon} {...iconStyle} />}</Text>
         </TouchableOpacity>
       )
     }
@@ -48,8 +49,10 @@ export default ({
             <Text
               style={[styles.headerText, { color: this.props.theme.tertiary }]}>
               {title.toUpperCase()}
-              {icon && this.horizontalComponent('chevron-left', this.goBack)}
             </Text>
+            <View style={styles.iconNavigate}>
+              {this.horizontalComponent(icon)}
+            </View>
 
             {/* <Header
               containerStyle={[

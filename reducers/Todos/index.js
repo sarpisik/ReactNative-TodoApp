@@ -21,10 +21,17 @@ const INITIAL_STATE = {
   selectedTodos: []
 }
 
-const applyAddTodo = (state, action) => ({
-  ...state,
-  todos: [...state.todos, action.todo]
-})
+const applyAddTodo = (state, action) => {
+  const todo = {
+    title: action.title,
+    id: state.todos.length > 0 ? state.todos.length + 1 : 0,
+    isDone: false
+  }
+  return {
+    ...state,
+    todos: [...state.todos, todo]
+  }
+}
 
 const applyUpdateTodo = (state, action) => {}
 

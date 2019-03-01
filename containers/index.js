@@ -1,3 +1,4 @@
 import RemoveTodo from './RemoveTodo'
+import AddTodo from './AddTodo'
 
-export { RemoveTodo }
+export { RemoveTodo, AddTodo }

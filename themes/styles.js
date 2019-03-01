@@ -1,12 +1,27 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+const SCREEN_WIDTH = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
+  button: {
+    width: SCREEN_WIDTH * 0.8,
+    borderRadius: 30,
+    marginTop: 10
+  },
   container: {
     flex: 1
   },
   centerContainer: {
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  errorInputStyle: {
+    marginTop: 0,
+    textAlign: 'center',
+    color: '#F44336'
+  },
+  formContainer: {
+    width: SCREEN_WIDTH * 0.8,
+    alignItems: 'center'
   },
   headerButton: {
     alignItems: 'center',
@@ -16,6 +31,7 @@ const styles = StyleSheet.create({
     width: 40
   },
   headerContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
     height: '15%',
     maxHeight: 75,
@@ -24,6 +40,28 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
   headerText: { fontWeight: 'bold', fontSize: 25, fontFamily: 'space-mono' },
+  iconNavigate: {
+    position: 'absolute',
+    top: 25,
+    right: 25
+  },
+  inputContainer: {
+    // paddingLeft: 8,
+    alignSelf: 'center',
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: '#61dafb',
+    height: 45,
+    marginVertical: 10,
+    width: SCREEN_WIDTH * 0.8
+  },
+  inputStyle: {
+    flex: 1,
+    marginLeft: 10,
+    color: '#61dafb',
+    // fontFamily: 'light',
+    fontSize: 16
+  },
   removeButton: {
     backgroundColor: 'red',
     borderRadius: 0,

@@ -8,10 +8,10 @@ import createAnimatedTabNavigator from './createAnimatedBottomTabNavigator'
 // Redux Injected Bar
 import Bar from './NavigationBottomBar'
 // Bar Icons
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import { Entypo } from '@expo/vector-icons'
 
 // Screens
-import { HomeScreen, SettingsScreen } from '../screens'
+import { HomeScreen, SettingsScreen, AddTodoScreen } from '../screens'
 
 // Transition will be used later for stack navigator
 const transitionConfig = () => {
@@ -39,11 +39,9 @@ const transitionConfig = () => {
 }
 
 const icons = {
-  Home: 'ios-home',
-  Settings: 'ios-settings'
+  Home: 'clipboard',
+  Settings: 'cog'
 }
-
-const IconComponent = Ionicons
 
 const TabNavigator = createAnimatedTabNavigator(
   {
@@ -58,7 +56,7 @@ const TabNavigator = createAnimatedTabNavigator(
         const { routeName } = navigation.state
         let iconName = icons[routeName]
 
-        return <IconComponent name={iconName} size={25} color={tintColor} />
+        return <Entypo name={iconName} size={25} color={tintColor} />
       }
     })
   }
@@ -67,7 +65,8 @@ const TabNavigator = createAnimatedTabNavigator(
 export default createAppContainer(
   createStackNavigator(
     {
-      Main: TabNavigator
+      Main: TabNavigator,
+      AddTodo: AddTodoScreen
     },
     {
       initialRouteName: 'Main',
