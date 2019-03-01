@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 40,
     borderWidth: 1,
-    borderColor: '#61dafb',
     height: 45,
     marginVertical: 10,
     width: SCREEN_WIDTH * 0.8
@@ -58,7 +57,6 @@ const styles = StyleSheet.create({
   inputStyle: {
     flex: 1,
     marginLeft: 10,
-    color: '#61dafb',
     // fontFamily: 'light',
     fontSize: 16
   },

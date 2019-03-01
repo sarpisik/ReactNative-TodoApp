@@ -1,31 +1,20 @@
 import React from 'react'
-import { View } from 'react-native'
+import { connect } from 'react-redux'
 import { Input } from 'react-native-elements'
 import { Entypo } from '@expo/vector-icons'
-import { styles } from '../../themes'
 
-export default ({
-  style = styles.formContainer,
-  autoFocus = true,
-  icon = 'new-message',
-  inputContainerStyle = styles.inputContainer,
-  inputStyle = styles.inputStyle,
-  placeholder = 'Type',
-  placeholderTextColor = '#61dafb',
-  returnKeyType = 'go',
-  ...props
-}) => {
-  return (
-    <Input
-      inputContainerStyle={inputContainerStyle}
-      leftIcon={<Entypo name={icon} color={placeholderTextColor} size={18} />}
-      inputStyle={inputStyle}
-      autoFocus={autoFocus}
-      errorStyle={styles.errorInputStyle}
-      placeholderTextColor={placeholderTextColor}
-      placeholder={placeholder}
-      returnKeyType={returnKeyType}
-      {...props}
-    />
-  )
+const mapStateToProps = (state, ownProps) => {
+  const primary = state.themeState.theme.primary
+  return {
+    ...ownProps,
+    inputContainerStyle: {
+      ...ownProps.inputContainerStyle,
+      borderColor: primary
+    },
+    inputStyle: { ...ownProps.inputStyle, color: primary },
+    placeholderTextColor: primary,
+    leftIcon: <Entypo name={ownProps.icon} color={primary} size={18} />
+  }
 }
+
+export default connect(mapStateToProps)(Input)

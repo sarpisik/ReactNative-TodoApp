@@ -22,6 +22,13 @@ const TodoForm = ({ todo, onChange, addTodo, ...props }) => {
   return (
     <>
       <InputField
+        inputContainerStyle={styles.inputContainer}
+        icon="new-message"
+        inputStyle={styles.inputStyle}
+        autoFocus={true}
+        errorStyle={styles.errorInputStyle}
+        placeholder="Type"
+        returnKeyType="go"
         errorMessage={props.error && props.error.message}
         onChangeText={todo => onChange({ todo })}
         onSubmitEditing={() => onSubmit()}
@@ -29,7 +36,11 @@ const TodoForm = ({ todo, onChange, addTodo, ...props }) => {
         shake={true}
       />
 
-      <Button buttonStyle={styles.button} title="Add Todo" />
+      <Button
+        buttonStyle={styles.button}
+        onPress={() => onSubmit()}
+        title="Add Todo"
+      />
     </>
   )
 }
