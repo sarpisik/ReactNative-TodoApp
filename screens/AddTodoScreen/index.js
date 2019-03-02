@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
 import { KeyboardAvoidingView, Text, View } from 'react-native'
 import { AddTodo } from '../../containers'
+import { withHeader } from '../../components'
 import { styles } from '../../themes'
 
-export default class AddTodoScreen extends PureComponent {
+class AddTodoScreen extends PureComponent {
   render() {
     return (
       <KeyboardAvoidingView
@@ -14,3 +15,11 @@ export default class AddTodoScreen extends PureComponent {
     )
   }
 }
+
+export default withHeader({
+  title: 'New Todo',
+  icon: {
+    left: 'arrow-long-left'
+  },
+  navigateTo: 'Main'
+})(AddTodoScreen)

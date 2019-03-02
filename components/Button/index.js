@@ -5,7 +5,8 @@ const mapStateToProps = (state, ownProps) => ({
   buttonStyle: {
     ...ownProps.buttonStyle,
     backgroundColor: state.themeState.theme.primary
-  }
+  },
+  titleStyle: { ...ownProps.titleStyle, color: state.themeState.theme.tertiary }
 })
 
 export default connect(mapStateToProps)(Button)

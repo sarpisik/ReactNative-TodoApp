@@ -8,7 +8,7 @@ export const mapStateToProps = state => ({
   theme: state.themeState.theme
 })
 
-export const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   changeTheme: theme =>
     dispatch({
       type: ACTIONS.CHANGE_THEME,
@@ -16,8 +16,8 @@ export const mapDispatchToProps = dispatch => ({
     })
 })
 
-export const WithTheme = WrappedComponent => {
-  class hocComponent extends PureComponent {
+const withTheme = Component => {
+  class WithTheme extends PureComponent {
     static propTypes = {
       theme: PropTypes.shape({
         primary: PropTypes.string,
@@ -68,14 +68,14 @@ export const WithTheme = WrappedComponent => {
             this.props.theme.tertiary
           )
       }
-      return <WrappedComponent {...this.props} colors={colors} />
+      return <Component {...this.props} colors={colors} />
     }
   }
-  return hocComponent
-}
 
-export default WrapperComponent =>
-  connect(
+  return connect(
     mapStateToProps,
     mapDispatchToProps
-  )(WithTheme(WrapperComponent))
+  )(WithTheme)
+}
+
+export default withTheme

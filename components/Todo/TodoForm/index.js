@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '../../Button'
-import withForm from '../../HOCs/withForm'
-import InputField from '../../InputField'
+// import Button from '../../Button'
+import { Button, InputField, withForm } from '../../index'
+// import InputField from '../../InputField'
 import { styles } from '../../../themes'
 
 const INITIAL_STATE = {

@@ -4,23 +4,28 @@ import { TouchableOpacity, Text, View } from 'react-native'
 import { Entypo } from '@expo/vector-icons'
 import { styles } from '../../../themes'
 import ScreenContainer from '../../ScreenContainer'
+import withTheme from '../withTheme'
+// import { withTheme } from 'react-native-elements'
 
 let iconStyle = {
   // color: colors.text,
   size: 35
 }
 
-export default ({
+const withHeader = ({
   title = '',
-  icon = '',
+  icon = {
+    left: '',
+    right: ''
+  },
   navigateTo = ''
-}) => WrappedComponent => {
+}) => Component => {
   class WithHeader extends PureComponent {
     onNavigate = () => {
       this.props.navigation.navigate(navigateTo)
     }
 
-    horizontalComponent = (icon, onPress) => {
+    horizontalComponent = icon => {
       iconStyle.color = this.props.theme.tertiary
       return (
         <TouchableOpacity
@@ -37,21 +42,21 @@ export default ({
     })
 
     render() {
-      const {
-        colors,
-        theme: { primary, secondary }
-      } = this.props
+      const { colors } = this.props
       return (
         <ScreenContainer>
           <ScreenContainer
             style={styles.headerContainer}
             colors={colors.primary}>
+            <View style={styles.iconLeft}>
+              {this.horizontalComponent(icon.left)}
+            </View>
             <Text
               style={[styles.headerText, { color: this.props.theme.tertiary }]}>
               {title.toUpperCase()}
             </Text>
-            <View style={styles.iconNavigate}>
-              {this.horizontalComponent(icon)}
+            <View style={styles.iconRight}>
+              {this.horizontalComponent(icon.right)}
             </View>
 
             {/* <Header
@@ -72,11 +77,13 @@ export default ({
             /> */}
           </ScreenContainer>
           <ScreenContainer colors={colors.secondary}>
-            <WrappedComponent {...this.props} />
+            <Component {...this.props} />
           </ScreenContainer>
         </ScreenContainer>
       )
     }
   }
-  return WithHeader
+  return withTheme(WithHeader)
 }
+
+export default withHeader
