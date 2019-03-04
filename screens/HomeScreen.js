@@ -1,15 +1,15 @@
 import React from 'react'
 import { RemoveTodo } from '../containers'
 
-import { withHeader, withTheme, TodoList } from '../components'
+import { withHeader, TodoList } from '../components'
 
 class HomeScreen extends React.Component {
   render() {
     // return null
     return (
       <>
-        <TodoList />
-        <RemoveTodo />
+        <TodoList list="titles" />
+        <RemoveTodo list="titles" />
       </>
     )
   }

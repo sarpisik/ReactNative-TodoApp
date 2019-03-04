@@ -22,7 +22,9 @@ const withHeader = ({
 }) => Component => {
   class WithHeader extends PureComponent {
     onNavigate = () => {
-      this.props.navigation.navigate(navigateTo)
+      navigateTo === 'back'
+        ? this.props.navigation.goBack()
+        : this.props.navigation.navigate(navigateTo)
     }
 
     horizontalComponent = icon => {
@@ -42,7 +44,7 @@ const withHeader = ({
     })
 
     render() {
-      const { colors } = this.props
+      const { colors, navigation } = this.props
       return (
         <ScreenContainer>
           <ScreenContainer
@@ -53,7 +55,7 @@ const withHeader = ({
             </View>
             <Text
               style={[styles.headerText, { color: this.props.theme.tertiary }]}>
-              {title.toUpperCase()}
+              {navigation.getParam('title', title).toUpperCase()}
             </Text>
             <View style={styles.iconRight}>
               {this.horizontalComponent(icon.right)}

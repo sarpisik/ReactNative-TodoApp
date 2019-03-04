@@ -11,7 +11,12 @@ import Bar from './NavigationBottomBar'
 import { Entypo } from '@expo/vector-icons'
 
 // Screens
-import { HomeScreen, SettingsScreen, AddTodoScreen } from '../screens'
+import {
+  HomeScreen,
+  SettingsScreen,
+  AddTodoScreen,
+  ShowTodoScreen
+} from '../screens'
 
 // Transition will be used later for stack navigator
 const transitionConfig = () => {
@@ -66,7 +71,8 @@ export default createAppContainer(
   createStackNavigator(
     {
       Main: TabNavigator,
-      AddTodo: AddTodoScreen
+      AddTodo: AddTodoScreen,
+      ShowTodo: ShowTodoScreen
     },
     {
       initialRouteName: 'Main',

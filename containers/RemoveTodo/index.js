@@ -2,8 +2,11 @@ import { connect } from 'react-redux'
 import ACTIONS from '../../constants'
 import { RemoveButton } from '../../components'
 
-const mapStateToProps = state => {
-  const selectedTodos = state.todosState.selectedTodos
+const mapStateToProps = (state, ownProps) => {
+  const selectedTodos =
+    ownProps.id != undefined
+      ? state.todosState.todosList[ownProps.id].selectedTodos
+      : state.todosState.selectedTitlesList
   const count = selectedTodos ? selectedTodos.length : selectedTodos
   return {
     count
@@ -11,10 +14,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  removeTodo: () =>
-    dispatch({
-      type: ACTIONS.TODO_DELETE
+  removeTodo: list => {
+    return dispatch({
+      type: ACTIONS.TODO_DELETE,
+      ...list
     })
+  }
 })
 
 export default connect(

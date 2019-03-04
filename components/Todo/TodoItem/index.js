@@ -1,27 +1,45 @@
 import React, { PureComponent } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import { withNavigation } from 'react-navigation'
 import ACTIONS from '../../../constants'
 import { CheckBox } from 'react-native-elements'
 import { styles } from '../../../themes'
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleTodo: id =>
     dispatch({
-      type: ACTIONS.TODO_TOGGLE,
-      id
+      list: ownProps.item,
+      type: ACTIONS.TOGGLE,
+      ...id
     })
 })
 
 class TodoItem extends PureComponent {
-  render() {
-    const { id, isDone, title, color, toggleTodo } = this.props
+  renderItem = () => {
+    const {
+      id,
+      isToggle,
+      title,
+      color,
+      toggleTodo,
+      navigation,
+      item,
+      ...props
+    } = this.props
+
     return (
       <View style={styles.row}>
         <View style={[styles.rowItem, styles.rowCheckBox]}>
           <CheckBox
-            onPress={() => toggleTodo(id)}
-            checked={isDone}
+            onPress={() =>
+              toggleTodo(
+                item === 'titles'
+                  ? { titleId: id }
+                  : { todoId: id, titleId: props.titleId }
+              )
+            }
+            checked={isToggle}
             checkedColor={color}
           />
         </View>
@@ -31,9 +49,23 @@ class TodoItem extends PureComponent {
       </View>
     )
   }
+
+  render() {
+    const { id, title, navigation, item } = this.props
+    return item === 'titles' ? (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('ShowTodo', { title: title, id: id })
+        }>
+        {this.renderItem()}
+      </TouchableOpacity>
+    ) : (
+      this.renderItem()
+    )
+  }
 }
 
 export default connect(
   null,
   mapDispatchToProps
-)(TodoItem)
+)(withNavigation(TodoItem))

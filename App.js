@@ -1,3 +1,5 @@
+// TODO: Add new detail todos screen
+// FIXME: Crate new todo list
 import React from 'react'
 import { Provider } from 'react-redux'
 import { AppLoading, Asset, Font, Icon } from 'expo'

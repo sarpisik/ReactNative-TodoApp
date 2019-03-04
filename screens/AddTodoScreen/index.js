@@ -21,5 +21,5 @@ export default withHeader({
   icon: {
     left: 'arrow-long-left'
   },
-  navigateTo: 'Main'
+  navigateTo: 'back'
 })(AddTodoScreen)
