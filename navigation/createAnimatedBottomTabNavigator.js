@@ -1,5 +1,5 @@
 import React from 'react'
-import { Animated, Dimensions, Easing, StyleSheet, View } from 'react-native'
+import { Animated, Dimensions, StyleSheet, View } from 'react-native'
 import { BottomTabBar, createTabNavigator } from 'react-navigation-tabs'
 
 const { width } = Dimensions.get('window')

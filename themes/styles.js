@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   iconRight: {
     paddingRight: 20 // Equal to checkbox
   },
+  input: { paddingHorizontal: 20, fontSize: 18, flex: 1 },
   inputContainer: {
     // paddingLeft: 8,
     alignSelf: 'center',
@@ -57,6 +58,10 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     // fontFamily: 'light',
     fontSize: 16
+  },
+  inputKeyboardContainer: {
+    flexDirection: 'row',
+    padding: 20
   },
   removeButton: {
     backgroundColor: 'red',

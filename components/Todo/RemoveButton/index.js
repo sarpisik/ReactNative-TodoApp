@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'react-native-elements'
+import ACTIONS from '../../../constants'
 import { styles } from '../../../themes'
 
 export default ({ count, removeTodo, list, id }) =>
@@ -11,8 +12,8 @@ export default ({ count, removeTodo, list, id }) =>
       onPress={() =>
         removeTodo(
           list === 'titles'
-            ? { list: 'titles' }
-            : { list: 'todos', titleId: id }
+            ? { type: ACTIONS.CATEGORY_DELETE }
+            : { type: ACTIONS.TODO_TOGGLED_DELETE, titleId: id }
         )
       }
     />

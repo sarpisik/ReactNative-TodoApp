@@ -5,7 +5,14 @@ import withHeader from './HOCs/withHeader'
 import withForm from './HOCs/withForm'
 import Button from './Button'
 import InputField from './InputField'
-import { TodoItem, TodoList, RemoveButton, TodoForm } from './Todo'
+import {
+  AddTodo,
+  TodoItem,
+  TodoItemLayout,
+  TodoList,
+  RemoveButton,
+  TodoForm
+} from './Todo'
 
 export {
   AppContainer,
@@ -14,7 +21,9 @@ export {
   mapStateToProps,
   withHeader,
   withForm,
+  AddTodo,
   TodoItem,
+  TodoItemLayout,
   TodoList,
   RemoveButton,
   TodoForm,

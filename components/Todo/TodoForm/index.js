@@ -1,11 +1,9 @@
 import React from 'react'
-// import Button from '../../Button'
 import { Button, InputField, withForm } from '../../index'
-// import InputField from '../../InputField'
 import { styles } from '../../../themes'
 
 const INITIAL_STATE = {
-  todo: '',
+  title: '',
   error: null
 }
 
@@ -13,11 +11,11 @@ const error = {
   message: "Input field can't be empty"
 }
 
-const TodoForm = ({ todo, onChange, addTodo, ...props }) => {
+const TitleForm = ({ title, onChange, addTitle, ...props }) => {
   const onSubmit = () => {
-    todo === ''
+    title === ''
       ? onChange({ error })
-      : (addTodo(todo), props.onSubmit(), props.navigate())
+      : (addTitle(title), props.onSubmit(), props.navigate())
   }
   return (
     <>
@@ -30,19 +28,19 @@ const TodoForm = ({ todo, onChange, addTodo, ...props }) => {
         placeholder="Type"
         returnKeyType="go"
         errorMessage={props.error && props.error.message}
-        onChangeText={todo => onChange({ todo })}
+        onChangeText={title => onChange({ title })}
         onSubmitEditing={() => onSubmit()}
-        value={todo}
+        value={title}
         shake={true}
       />
 
       <Button
         buttonStyle={styles.button}
         onPress={() => onSubmit()}
-        title="Add Todo"
+        title="Create Title"
       />
     </>
   )
 }
 
-export default withForm(INITIAL_STATE)(TodoForm)
+export default withForm(INITIAL_STATE)(TitleForm)

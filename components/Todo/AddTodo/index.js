@@ -1,0 +1,65 @@
+import React from 'react'
+import {
+  Platform,
+  View,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView
+} from 'react-native'
+import { Entypo } from '@expo/vector-icons'
+import ACTIONS from '../../../constants'
+import { withForm } from '../../index'
+import { styles } from '../../../themes'
+
+const INITIAL_STATE = {
+  text: '',
+  error: null
+}
+
+const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
+  const onSubmit = () => {
+    const data = id
+      ? {
+          text,
+          titleId: id,
+          type: ACTIONS.TODO_ADD
+        }
+      : {
+          text,
+          type: ACTIONS.CATEGORY_ADD
+        }
+    text === '' || (addEntry(data), props.onSubmit())
+  }
+
+  return (
+    <KeyboardAvoidingView
+      // Offset value must be equal to header component height value for android devices
+      keyboardVerticalOffset={Platform.select({ ios: 0, android: 75 })}
+      behavior="padding">
+      <View
+        style={[
+          styles.inputKeyboardContainer,
+          { backgroundColor: theme.primary }
+        ]}>
+        <TextInput
+          value={text}
+          style={[styles.input, { color: theme.tertiary }]}
+          multiline
+          textAlignVertical="top"
+          underlineColorAndroid="transparent"
+          placeholder="Add Todo"
+          placeholderTextColor={theme.tertiary}
+          onChangeText={text => onChange({ text })}
+          onSubmitEditing={() => onSubmit()}
+        />
+
+        {/* SEND BUTTON */}
+        <TouchableOpacity onPress={() => onSubmit()}>
+          <Entypo name="paper-plane" size={25} color={theme.tertiary} />
+        </TouchableOpacity>
+      </View>
+    </KeyboardAvoidingView>
+  )
+}
+
+export default withForm(INITIAL_STATE)(AddTodo)

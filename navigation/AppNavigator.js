@@ -14,7 +14,7 @@ import { Entypo } from '@expo/vector-icons'
 import {
   HomeScreen,
   SettingsScreen,
-  AddTodoScreen,
+  CreateTitleScreen,
   ShowTodoScreen
 } from '../screens'
 
@@ -62,7 +62,8 @@ const TabNavigator = createAnimatedTabNavigator(
         let iconName = icons[routeName]
 
         return <Entypo name={iconName} size={25} color={tintColor} />
-      }
+      },
+      swipeEnabled: true
     })
   }
 )
@@ -71,7 +72,7 @@ export default createAppContainer(
   createStackNavigator(
     {
       Main: TabNavigator,
-      AddTodo: AddTodoScreen,
+      CreateTitle: CreateTitleScreen,
       ShowTodo: ShowTodoScreen
     },
     {

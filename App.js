@@ -1,5 +1,4 @@
-// TODO: Add new detail todos screen
-// FIXME: Crate new todo list
+// TODO: Add title edit func
 import React from 'react'
 import { Provider } from 'react-redux'
 import { AppLoading, Asset, Font, Icon } from 'expo'

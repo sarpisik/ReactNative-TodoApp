@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react'
 import { KeyboardAvoidingView, Text, View } from 'react-native'
-import { AddTodo } from '../../containers'
+import { AddTitle } from '../../containers'
 import { withHeader } from '../../components'
 import { styles } from '../../themes'
 
-class AddTodoScreen extends PureComponent {
+class CreateTitleScreen extends PureComponent {
   render() {
     return (
       <KeyboardAvoidingView
         style={[styles.container, styles.centerContainer]}
         behavior="padding">
-        <AddTodo navigate={this.props.navigation.goBack} />
+        <AddTitle navigate={this.props.navigation.goBack} />
       </KeyboardAvoidingView>
     )
   }
@@ -22,4 +22,4 @@ export default withHeader({
     left: 'arrow-long-left'
   },
   navigateTo: 'back'
-})(AddTodoScreen)
+})(CreateTitleScreen)

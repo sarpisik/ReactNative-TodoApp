@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { RemoveTodo } from '../../containers'
+import { RemoveTodo, AddTodo } from '../../containers'
 import { withHeader, TodoList } from '../../components'
 
 class ShowTodoScreen extends PureComponent {
@@ -9,6 +9,7 @@ class ShowTodoScreen extends PureComponent {
     return (
       <>
         <TodoList list="todos" id={id} />
+        <AddTodo id={id} theme={this.props.theme} />
         <RemoveTodo list="todos" id={id} />
       </>
     )

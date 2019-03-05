@@ -16,7 +16,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   removeTodo: list => {
     return dispatch({
-      type: ACTIONS.TODO_DELETE,
       ...list
     })
   }

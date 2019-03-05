@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
         color={state.themeState.theme.tertiary}
         id={item.id}
         isToggle={item.isToggle}
-        title={item.title}
+        title={item.title || item.text}
         item={ownProps.list}
         titleId={ownProps.id && ownProps.id}
       />
