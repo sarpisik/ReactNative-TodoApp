@@ -2,19 +2,15 @@ import { connect } from 'react-redux'
 import ACTIONS from '../../constants'
 import { TodoForm } from '../../components'
 
-const mapStateToProps = state => ({
-  todos: state.todosState.todos
-})
-
 const mapDispatchToProps = dispatch => ({
-  addTitle: title =>
+  addCategory: newCategory =>
     dispatch({
       type: ACTIONS.CATEGORY_ADD,
-      title
+      newCategory
     })
 })
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(TodoForm)

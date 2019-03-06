@@ -67,20 +67,11 @@ const applyToggle = (state, action) => {
 }
 
 const applyAddTitle = (state, action) => {
-  const newTitle = {
-    title: action.text,
-    id: getCurrentTime(),
-    createdAt: getCurrentTime(),
-    isToggle: false,
-    selectedTodos: [],
-    todos: []
-  }
-
   return {
     ...state,
     todosList: {
       ...state.todosList,
-      [newTitle.id]: newTitle
+      [action.newCategory.id]: action.newCategory
     }
   }
 }

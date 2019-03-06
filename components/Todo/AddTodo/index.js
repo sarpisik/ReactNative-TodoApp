@@ -31,7 +31,7 @@ const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
     text === '' || (addEntry(data), props.onSubmit())
   }
 
-  return (
+  return props.isActive ? (
     <KeyboardAvoidingView
       // Offset value must be equal to header component height value for android devices
       keyboardVerticalOffset={Platform.select({ ios: 0, android: 75 })}
@@ -41,25 +41,25 @@ const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
           styles.inputKeyboardContainer,
           { backgroundColor: theme.primary }
         ]}>
+        {/* SEND BUTTON */}
+        <Entypo name="paper-plane" size={25} color={theme.tertiary} />
+
         <TextInput
           value={text}
           style={[styles.input, { color: theme.tertiary }]}
-          multiline
+          autoFocus={true}
           textAlignVertical="top"
           underlineColorAndroid="transparent"
           placeholder="Add Todo"
           placeholderTextColor={theme.tertiary}
           onChangeText={text => onChange({ text })}
           onSubmitEditing={() => onSubmit()}
+          onBlur={() => props.onBlur()}
+          blurOnSubmit={true}
         />
-
-        {/* SEND BUTTON */}
-        <TouchableOpacity onPress={() => onSubmit()}>
-          <Entypo name="paper-plane" size={25} color={theme.tertiary} />
-        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
-  )
+  ) : null
 }
 
 export default withForm(INITIAL_STATE)(AddTodo)

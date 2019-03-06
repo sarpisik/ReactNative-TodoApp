@@ -10,7 +10,7 @@ class CreateTitleScreen extends PureComponent {
       <KeyboardAvoidingView
         style={[styles.container, styles.centerContainer]}
         behavior="padding">
-        <AddTitle navigate={this.props.navigation.goBack} />
+        <AddTitle navigate={this.props.navigation.replace} />
       </KeyboardAvoidingView>
     )
   }

@@ -11,11 +11,33 @@ const error = {
   message: "Input field can't be empty"
 }
 
-const TitleForm = ({ title, onChange, addTitle, ...props }) => {
+const getCurrentTime = () => Date.now()
+
+const TitleForm = ({ title, onChange, addCategory, ...props }) => {
   const onSubmit = () => {
-    title === ''
-      ? onChange({ error })
-      : (addTitle(title), props.onSubmit(), props.navigate())
+    if (title === '') {
+      onChange({ error })
+    } else {
+      try {
+        const newCategory = {
+          title: title,
+          id: getCurrentTime(),
+          createdAt: getCurrentTime(),
+          isToggle: false,
+          selectedTodos: [],
+          todos: []
+        }
+
+        addCategory(newCategory)
+        props.onSubmit()
+        props.navigate('ShowTodo', {
+          title: newCategory.title,
+          id: newCategory.id
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
   return (
     <>

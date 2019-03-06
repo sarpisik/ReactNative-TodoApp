@@ -12,6 +12,8 @@ export default ({ colors, children, ...props }) => {
       {children}
     </Animated.View>
   ) : (
-    <View style={styles.container}>{children}</View>
+    <View {...props} style={styles.container}>
+      {children}
+    </View>
   )
 }

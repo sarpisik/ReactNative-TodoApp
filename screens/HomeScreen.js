@@ -1,5 +1,5 @@
 import React from 'react'
-import { RemoveTodo, AddTodo } from '../containers'
+import { RemoveTodo } from '../containers'
 
 import { withHeader, TodoList } from '../components'
 
@@ -9,7 +9,6 @@ class HomeScreen extends React.Component {
     return (
       <>
         <TodoList list="titles" />
-        <AddTodo theme={this.props.theme} />
         <RemoveTodo list="titles" />
       </>
     )
