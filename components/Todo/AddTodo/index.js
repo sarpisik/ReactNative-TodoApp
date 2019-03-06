@@ -12,17 +12,13 @@ const INITIAL_STATE = {
 
 const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
   const onSubmit = () => {
-    const data = id
-      ? {
-          text,
-          titleId: id,
-          type: ACTIONS.TODO_ADD
-        }
-      : {
-          text,
-          type: ACTIONS.CATEGORY_ADD
-        }
-    text === '' || (addEntry(data), props.onSubmit())
+    text === '' ||
+      (addEntry({
+        text,
+        titleId: id,
+        type: ACTIONS.TODO_ADD
+      }),
+      props.onSubmit())
   }
 
   return props.isActive ? (

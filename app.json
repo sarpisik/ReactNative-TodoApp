@@ -14,7 +14,13 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#222"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.sarpisik.todoapp"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,10 +28,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "description": "This is a React native Todo App project.\n\nCredits:\n-React Native Expo\n-React Redux\n-React Navigation\n-React Native Elements",
+    "description": "This is a React native Todo App project.\nCurrently works properly on Android devices.\n\nCredits:\n-React Native Expo\n-React Redux\n-React Navigation\n-React Native Elements",
     "githubUrl": "https://github.com/sarpisik/ReactNative-TodoApp"
   }
 }
