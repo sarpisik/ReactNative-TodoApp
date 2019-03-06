@@ -1,10 +1,12 @@
-// TODO: Add title edit func
 import React from 'react'
-import { Provider } from 'react-redux'
 import { AppLoading, Asset, Font, Icon } from 'expo'
+
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/lib/integration/react'
+import { store, persistor } from './store'
+
+import { AppContainer, Loading } from './components'
 import AppNavigator from './navigation/AppNavigator'
-import store from './store'
-import { AppContainer } from './components'
 
 export default class App extends React.Component {
   state = {
@@ -23,9 +25,11 @@ export default class App extends React.Component {
     } else {
       return (
         <Provider store={store}>
-          <AppContainer>
-            <AppNavigator />
-          </AppContainer>
+          <PersistGate loading={<Loading />} persistor={persistor}>
+            <AppContainer>
+              <AppNavigator />
+            </AppContainer>
+          </PersistGate>
         </Provider>
       )
     }

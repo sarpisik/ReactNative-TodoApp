@@ -63,6 +63,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 20
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   removeButton: {
     backgroundColor: 'red',
     borderRadius: 0,

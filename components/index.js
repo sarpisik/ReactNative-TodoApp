@@ -5,6 +5,7 @@ import withHeader from './HOCs/withHeader'
 import withForm from './HOCs/withForm'
 import Button from './Button'
 import InputField from './InputField'
+import Loading from './Loading'
 import {
   AddTodo,
   TodoItem,
@@ -28,5 +29,6 @@ export {
   RemoveButton,
   TodoForm,
   Button,
-  InputField
+  InputField,
+  Loading
 }
