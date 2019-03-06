@@ -8,6 +8,7 @@ class CreateTitleScreen extends PureComponent {
   render() {
     return (
       <KeyboardAvoidingView
+        keyboardVerticalOffset={75}
         style={[styles.container, styles.centerContainer]}
         behavior="padding">
         <AddTitle navigate={this.props.navigation.replace} />

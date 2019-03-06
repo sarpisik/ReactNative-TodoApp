@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  Platform,
-  View,
-  TextInput,
-  TouchableOpacity,
-  KeyboardAvoidingView
-} from 'react-native'
+import { View, TextInput, KeyboardAvoidingView } from 'react-native'
 import { Entypo } from '@expo/vector-icons'
 import ACTIONS from '../../../constants'
 import { withForm } from '../../index'
@@ -33,8 +27,8 @@ const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
 
   return props.isActive ? (
     <KeyboardAvoidingView
-      // Offset value must be equal to header component height value for android devices
-      keyboardVerticalOffset={Platform.select({ ios: 0, android: 75 })}
+      // Offset value must be equal to header component height value
+      keyboardVerticalOffset={75}
       behavior="padding">
       <View
         style={[
