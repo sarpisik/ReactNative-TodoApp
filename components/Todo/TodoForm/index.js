@@ -11,18 +11,18 @@ const error = {
   message: "Input field can't be empty"
 }
 
-const getCurrentTime = () => Date.now()
-
 const TitleForm = ({ title, onChange, addCategory, ...props }) => {
   const onSubmit = () => {
     if (title === '') {
       onChange({ error })
     } else {
       try {
+        const time = new Date()
         const newCategory = {
           title: title,
-          id: getCurrentTime(),
-          createdAt: getCurrentTime(),
+          id: time.getTime(),
+          createdAt: time.toUTCString(),
+          lastModified: time.getTime(),
           isToggle: false,
           selectedTodos: [],
           todos: []
@@ -44,10 +44,10 @@ const TitleForm = ({ title, onChange, addCategory, ...props }) => {
       <InputField
         inputContainerStyle={styles.inputContainer}
         icon="new-message"
-        inputStyle={styles.inputStyle}
+        inputStyle={{ ...styles.inputStyle, ...styles.rowText }}
         autoFocus={true}
         errorStyle={styles.errorInputStyle}
-        placeholder="Type"
+        placeholder="Category Title..."
         returnKeyType="go"
         errorMessage={props.error && props.error.message}
         onChangeText={title => onChange({ title })}

@@ -8,7 +8,7 @@ import withTheme from '../withTheme'
 
 let iconStyle = {
   // color: colors.text,
-  size: 35
+  size: 40
 }
 
 const withHeader = ({
@@ -26,7 +26,7 @@ const withHeader = ({
         : this.props.navigation.navigate(navigateTo)
     }
 
-    horizontalComponent = icon => {
+    iconComponent = icon => {
       iconStyle.color = this.props.theme.tertiary
       return (
         <TouchableOpacity
@@ -37,11 +37,6 @@ const withHeader = ({
       )
     }
 
-    centerComponent = title => ({
-      text: title.toUpperCase(),
-      style: {}
-    })
-
     render() {
       const { colors, navigation } = this.props
       return (
@@ -49,15 +44,18 @@ const withHeader = ({
           <ScreenContainer
             style={styles.headerContainer}
             colors={colors.primary}>
-            <View style={styles.iconLeft}>
-              {this.horizontalComponent(icon.left)}
-            </View>
+            <View style={styles.iconLeft}>{this.iconComponent(icon.left)}</View>
             <Text
-              style={[styles.headerText, { color: this.props.theme.tertiary }]}>
+              style={[
+                styles.headerText,
+                {
+                  color: this.props.theme.tertiary
+                }
+              ]}>
               {navigation.getParam('title', title).toUpperCase()}
             </Text>
             <View style={styles.iconRight}>
-              {this.horizontalComponent(icon.right)}
+              {this.iconComponent(icon.right)}
             </View>
           </ScreenContainer>
           <ScreenContainer colors={colors.secondary}>

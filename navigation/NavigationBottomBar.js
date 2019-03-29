@@ -12,37 +12,14 @@ const mapStateToProps = (state, ownProps) => {
       fontSize: 24
     },
     tabStyle: {
-      padding: 10
+      height: '100%'
     },
     style: {
       backgroundColor: primary,
-      color: secondary
+      color: secondary,
+      height: 60
     }
   }
-  // const themedHeader = {
-  //   ...ownProps,
-  //   scene: {
-  //     ...ownProps.scene,
-  //     descriptor: {
-  //       ...ownProps.scene.descriptor,
-  //       options: {
-  //         ...ownProps.scene.descriptor.options,
-  //         headerStyle: {
-  //           backgroundColor: state.themeState.theme.primary,
-  //           borderBottomColor: state.themeState.theme.secondary
-  //         },
-  //         headerTitleStyle: {
-  //           color: state.themeState.theme.secondary,
-  //           fontWeight: 'bold',
-  //           zIndex: 1,
-  //           fontSize: 18,
-  //           lineHeight: 23
-  //         },
-  //         headerTintColor: state.themeState.theme.secondary
-  //       }
-  //     }
-  //   }
-  // }
 
   return themeTab
 }

@@ -1,6 +1,4 @@
 import React from 'react'
-import { Animated, Easing } from 'react-native'
-
 // Navigation Creator & Container
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 // Bottom Tab Bar Creator
@@ -18,36 +16,12 @@ import {
   ShowTodoScreen
 } from '../screens'
 
-// Transition will be used later for stack navigator
-const transitionConfig = () => {
-  return {
-    transitionSpec: {
-      duration: 750,
-      easing: Easing.out(Easing.poly(4)),
-      timing: Animated.timing,
-      useNativeDriver: true
-    },
-    screenInterpolator: sceneProps => {
-      const { layout, position, scene } = sceneProps
-
-      const thisSceneIndex = scene.index
-      const width = layout.initWidth
-
-      const translateX = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex],
-        outputRange: [width, 0]
-      })
-
-      return { transform: [{ translateX }] }
-    }
-  }
-}
-
 const icons = {
   Home: 'clipboard',
   Settings: 'cog'
 }
 
+// Bottom Tab Bar
 const TabNavigator = createAnimatedTabNavigator(
   {
     Home: HomeScreen,
@@ -61,13 +35,14 @@ const TabNavigator = createAnimatedTabNavigator(
         const { routeName } = navigation.state
         let iconName = icons[routeName]
 
-        return <Entypo name={iconName} size={25} color={tintColor} />
+        return <Entypo name={iconName} size={30} color={tintColor} />
       },
       swipeEnabled: true
     })
   }
 )
 
+// Routes
 export default createAppContainer(
   createStackNavigator(
     {
@@ -78,6 +53,7 @@ export default createAppContainer(
     {
       initialRouteName: 'Main',
       defaultNavigationOptions: () => ({
+        // We will use a custom HOC header component
         header: null
       })
     }

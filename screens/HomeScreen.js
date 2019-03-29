@@ -5,7 +5,6 @@ import { withHeader, TodoList } from '../components'
 
 class HomeScreen extends React.Component {
   render() {
-    // return null
     return (
       <>
         <TodoList list="titles" />
@@ -15,10 +14,14 @@ class HomeScreen extends React.Component {
   }
 }
 
+// Header properties of the screen
 export default withHeader({
+  // Title of the header
   title: 'Home',
+  // The icon on the header
   icon: {
     right: 'plus'
   },
+  // The icon event on touch
   navigateTo: 'CreateTitle'
 })(HomeScreen)

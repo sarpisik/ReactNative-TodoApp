@@ -36,6 +36,7 @@ export default class App extends React.Component {
   }
 
   _loadResourcesAsync = async () => {
+    console.log('ICON ,', Icon)
     return Promise.all([
       Asset.loadAsync([
         require('./assets/images/robot-dev.png'),
@@ -43,10 +44,12 @@ export default class App extends React.Component {
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
-        ...Icon.Ionicons.font,
+        // ...Icon.Entypo.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
+        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+        Ubuntu: require('./assets/fonts/Ubuntu-Regular.ttf'),
+        'Ubuntu-medium': require('./assets/fonts/Ubuntu-Medium.ttf')
       })
     ])
   }

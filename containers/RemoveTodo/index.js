@@ -5,7 +5,7 @@ import { RemoveButton } from '../../components'
 const mapStateToProps = (state, ownProps) => {
   const selectedTodos =
     ownProps.id != undefined
-      ? state.todosState.todosList[ownProps.id].selectedTodos
+      ? state.todosState.categoriesList[ownProps.id].selectedTodos
       : state.todosState.selectedTitlesList
   const count = selectedTodos ? selectedTodos.length : selectedTodos
   return {

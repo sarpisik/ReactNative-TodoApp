@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     },
     inputStyle: { ...ownProps.inputStyle, color: primary },
     placeholderTextColor: primary,
-    leftIcon: <Entypo name={ownProps.icon} color={primary} size={18} />
+    leftIcon: <Entypo name={ownProps.icon} color={primary} size={30} />
   }
 }
 

@@ -5,6 +5,7 @@ import { withNavigation } from 'react-navigation'
 import ACTIONS from '../../../constants'
 import TodoItemLayout from './TodoItemLayout'
 
+// Dispatch functions to alter the redux state, aka edit or toggle todo self.
 const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleTodo: id =>
     dispatch({
@@ -29,11 +30,13 @@ class TodoItem extends PureComponent {
   }
 
   componentDidUpdate = prevProps => {
+    // If the text of todo changed on redux state, update local state to new text.
     prevProps.title !== this.props.title &&
       this.setState({ text: this.props.title })
   }
 
   onBlur = () => {
+    // If the todo value in local state is different than in redux state, aka todo text changed, dispatch the redux state.
     this.props.title !== this.state.text &&
       this.props.editTodo({
         titleId: this.props.titleId,
@@ -48,7 +51,7 @@ class TodoItem extends PureComponent {
       id,
       isToggle,
       title,
-      color,
+      colors,
       toggleTodo,
       navigation,
       item,
@@ -64,7 +67,8 @@ class TodoItem extends PureComponent {
           )
         }
         checked={isToggle}
-        checkedColor={color}
+        textColor={colors.tertiary}
+        iconColor={colors.primary}
         value={text}
         editable={this.state.editable}
         onChangeText={text => this.setState({ text })}
@@ -74,8 +78,12 @@ class TodoItem extends PureComponent {
   }
 
   render() {
-    const { id, title, navigation, item } = this.props
+    const { id, title, navigation } = this.props
     const { editable, text } = this.state
+
+    // If this component rendered in a list of todos, render as a todo item.
+    // Else, render as a todo category item and attach an onPress event listener.
+    // Which navigates to itself.
     return editable ? (
       this.renderItem(text)
     ) : (

@@ -1,11 +1,29 @@
 import React from 'react'
-import { View, TextInput, KeyboardAvoidingView } from 'react-native'
+import {
+  View,
+  TextInput,
+  KeyboardAvoidingView,
+  TouchableOpacity
+} from 'react-native'
 import { Entypo } from '@expo/vector-icons'
 import ACTIONS from '../../../constants'
 import { withForm } from '../../index'
 import { styles } from '../../../themes'
 
+const Wrapper = ({ onPress, theme, children, style }) => (
+  <TouchableOpacity onPress={onPress}>
+    <View
+      style={[
+        styles.inputKeyboardContainer,
+        { backgroundColor: theme.primary, ...style }
+      ]}>
+      {children}
+    </View>
+  </TouchableOpacity>
+)
+
 const INITIAL_STATE = {
+  isActive: false,
   text: '',
   error: null
 }
@@ -26,17 +44,18 @@ const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
       // Offset value must be equal to header component height value
       keyboardVerticalOffset={75}
       behavior="padding">
-      <View
-        style={[
-          styles.inputKeyboardContainer,
-          { backgroundColor: theme.primary }
-        ]}>
-        {/* SEND BUTTON */}
-        <Entypo name="paper-plane" size={25} color={theme.tertiary} />
-
+      <Wrapper onPress={() => onChange({ isActive: true })} theme={theme}>
+        <TouchableOpacity onPress={() => onChange({ text: '' })}>
+          <Entypo
+            style={styles.icon}
+            name="cross"
+            size={30}
+            color={theme.tertiary}
+          />
+        </TouchableOpacity>
         <TextInput
           value={text}
-          style={[styles.input, { color: theme.tertiary }]}
+          style={[styles.input, styles.rowText, { color: theme.tertiary }]}
           autoFocus={true}
           textAlignVertical="top"
           underlineColorAndroid="transparent"
@@ -44,12 +63,24 @@ const AddTodo = ({ text, onChange, addEntry, theme, id, ...props }) => {
           placeholderTextColor={theme.tertiary}
           onChangeText={text => onChange({ text })}
           onSubmitEditing={() => onSubmit()}
-          onBlur={() => props.onBlur()}
+          onBlur={() => onChange({ isActive: false })}
           blurOnSubmit={true}
         />
-      </View>
+      </Wrapper>
     </KeyboardAvoidingView>
-  ) : null
+  ) : (
+    <Wrapper
+      onPress={() => onChange({ isActive: true })}
+      style={{ justifyContent: 'center' }}
+      theme={theme}>
+      <Entypo
+        style={styles.icon}
+        name="add-to-list"
+        size={30}
+        color={theme.tertiary}
+      />
+    </Wrapper>
+  )
 }
 
 export default withForm(INITIAL_STATE)(AddTodo)

@@ -36,14 +36,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
     paddingTop: 25
   },
-  headerText: { fontWeight: 'bold', fontSize: 25, fontFamily: 'space-mono' },
+  headerText: { fontSize: 30, fontFamily: 'Ubuntu-medium' },
+  icon: { padding: 10 },
   iconLeft: {
     paddingLeft: 20 // Equal to checkbox
   },
   iconRight: {
     paddingRight: 20 // Equal to checkbox
   },
-  input: { paddingHorizontal: 20, fontSize: 18, flex: 1 },
+  input: { paddingHorizontal: 20, flex: 1 },
   inputContainer: {
     // paddingLeft: 8,
     alignSelf: 'center',
@@ -55,13 +56,13 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
-    marginLeft: 10,
+    marginLeft: 10
     // fontFamily: 'light',
-    fontSize: 16
+    // fontSize: 16
   },
   inputKeyboardContainer: {
     flexDirection: 'row',
-    padding: 20
+    alignItems: 'center'
   },
   loading: {
     flex: 1,
@@ -91,7 +92,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   rowText: {
-    fontSize: 20
+    fontFamily: 'Ubuntu',
+    fontSize: 25
   },
   textCenter: {
     textAlign: 'center'

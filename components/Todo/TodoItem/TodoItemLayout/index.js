@@ -1,26 +1,37 @@
 import React, { PureComponent } from 'react'
-import { Text, TextInput, View } from 'react-native'
+import { TextInput, View } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 import { styles } from '../../../../themes'
 
+const Item = ({ children, container }) => {
+  return <View style={[styles.rowItem, container]}>{children}</View>
+}
+
 export default class TodoItemLayout extends PureComponent {
   render() {
-    const { onPressCheckBox, checked, checkedColor, ...restProps } = this.props
+    const {
+      onPressCheckBox,
+      checked,
+      textColor,
+      iconColor,
+      toggleEdit,
+      ...restProps
+    } = this.props
     return (
       <View style={styles.row}>
-        <View style={[styles.rowItem, styles.rowCheckBox]}>
+        <Item container={styles.rowCheckBox}>
           <CheckBox
             onPress={onPressCheckBox}
             checked={checked}
-            checkedColor={checkedColor}
+            checkedColor={textColor}
           />
-        </View>
-        <View style={[styles.rowItem, styles.rowTitle]}>
+        </Item>
+        <Item container={styles.rowTitle}>
           <TextInput
-            style={[styles.rowText, { color: checkedColor }]}
+            style={[styles.rowText, { color: textColor }]}
             {...restProps}
           />
-        </View>
+        </Item>
       </View>
     )
   }
