@@ -14,7 +14,9 @@ const INITIAL_STATE = {
 function todoReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ACTIONS.CATEGORY_ADD:
-      return apply_Add_Title(state, action)
+      return apply_Add_Category(state, action)
+    case ACTIONS.CATEGORY_UPDATE:
+      return apply_Update_Category(state, action)
     case ACTIONS.CATEGORY_DELETE:
       return apply_Delete_Category(state)
     case ACTIONS.TODO_ADD:
@@ -72,12 +74,28 @@ function apply_Toggle(state, action) {
   }
 }
 
-function apply_Add_Title(state, action) {
+function apply_Add_Category(state, action) {
   return {
     ...state,
     categoriesList: {
       ...state.categoriesList,
       [action.newCategory.id]: action.newCategory
+    }
+  }
+}
+
+function apply_Update_Category(state, action) {
+  const categoryID = action.todoId
+  const actionTime = getCurrentTime()
+  return {
+    ...state,
+    categoriesList: {
+      ...state.categoriesList,
+      [categoryID]: {
+        ...state.categoriesList[categoryID],
+        title: action.text,
+        lastModified: actionTime
+      }
     }
   }
 }

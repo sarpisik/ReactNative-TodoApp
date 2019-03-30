@@ -36,7 +36,6 @@ export default class App extends React.Component {
   }
 
   _loadResourcesAsync = async () => {
-    console.log('ICON ,', Icon)
     return Promise.all([
       Asset.loadAsync([
         require('./assets/images/robot-dev.png'),

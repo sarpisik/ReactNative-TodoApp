@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import ACTIONS from '../../constants'
 import { RemoveButton } from '../../components'
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,7 +8,9 @@ const mapStateToProps = (state, ownProps) => {
       : state.todosState.selectedTitlesList
   const count = selectedTodos ? selectedTodos.length : selectedTodos
   return {
-    count
+    ...ownProps,
+    count,
+    colors: state.themeState.theme
   }
 }
 

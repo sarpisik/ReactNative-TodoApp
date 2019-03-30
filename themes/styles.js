@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
     paddingTop: 25
   },
   headerText: { fontSize: 30, fontFamily: 'Ubuntu-medium' },
-  icon: { padding: 10 },
+  icon: { paddingHorizontal: 15 },
   iconLeft: {
     paddingLeft: 20 // Equal to checkbox
   },
   iconRight: {
     paddingRight: 20 // Equal to checkbox
   },
-  input: { paddingHorizontal: 20, flex: 1 },
+  input: { padding: 15, flex: 1 },
   inputContainer: {
     // paddingLeft: 8,
     alignSelf: 'center',
@@ -57,12 +57,11 @@ const styles = StyleSheet.create({
   inputStyle: {
     flex: 1,
     marginLeft: 10
-    // fontFamily: 'light',
-    // fontSize: 16
   },
   inputKeyboardContainer: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1
   },
   loading: {
     flex: 1,
@@ -70,30 +69,23 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   removeButton: {
-    backgroundColor: 'red',
-    borderRadius: 0,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0
+    borderTopWidth: 1,
+    borderRadius: 0
   },
   row: {
     width: '100%',
     flexDirection: 'row'
   },
-  rowItem: {
-    padding: 5
-  },
-  rowCheckBox: {
+  rowIcon: {
     flex: 1
   },
   rowTitle: {
-    flex: 4,
     justifyContent: 'center'
   },
   rowText: {
     fontFamily: 'Ubuntu',
-    fontSize: 25
+    fontSize: 25,
+    paddingVertical: 10 // Equal to input style
   },
   textCenter: {
     textAlign: 'center'

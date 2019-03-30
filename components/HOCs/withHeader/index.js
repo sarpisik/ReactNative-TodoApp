@@ -42,7 +42,13 @@ const withHeader = ({
       return (
         <ScreenContainer>
           <ScreenContainer
-            style={styles.headerContainer}
+            style={[
+              styles.headerContainer,
+              {
+                borderBottomWidth: 1,
+                borderBottomColor: this.props.theme.secondary
+              }
+            ]}
             colors={colors.primary}>
             <View style={styles.iconLeft}>{this.iconComponent(icon.left)}</View>
             <Text

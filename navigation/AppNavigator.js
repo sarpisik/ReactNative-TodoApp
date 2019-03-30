@@ -12,7 +12,6 @@ import { Entypo } from '@expo/vector-icons'
 import {
   HomeScreen,
   SettingsScreen,
-  CreateTitleScreen,
   ShowTodoScreen
 } from '../screens'
 
@@ -47,7 +46,6 @@ export default createAppContainer(
   createStackNavigator(
     {
       Main: TabNavigator,
-      CreateTitle: CreateTitleScreen,
       ShowTodo: ShowTodoScreen
     },
     {

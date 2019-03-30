@@ -3,17 +3,8 @@ import ScreenContainer from './ScreenContainer'
 import withTheme, { mapStateToProps } from './HOCs/withTheme'
 import withHeader from './HOCs/withHeader'
 import withForm from './HOCs/withForm'
-import Button from './Button'
-import InputField from './InputField'
 import Loading from './Loading'
-import {
-  AddTodo,
-  TodoItem,
-  TodoItemLayout,
-  TodoList,
-  RemoveButton,
-  TodoForm
-} from './Todo'
+import { AddTodo, TodoItem, RemoveButton, TodoForm } from './Todo'
 
 export {
   AppContainer,
@@ -24,11 +15,7 @@ export {
   withForm,
   AddTodo,
   TodoItem,
-  TodoItemLayout,
-  TodoList,
   RemoveButton,
   TodoForm,
-  Button,
-  InputField,
   Loading
 }

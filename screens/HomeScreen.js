@@ -1,15 +1,16 @@
 import React from 'react'
-import { RemoveTodo } from '../containers'
-
-import { withHeader, TodoList } from '../components'
+import { AddTodo, RemoveTodo, TodoList } from '../containers'
+import { ScreenContainer } from '../components'
+import { withHeader } from '../components'
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <>
+      <ScreenContainer>
+        <AddTodo theme={this.props.theme} />
         <TodoList list="titles" />
         <RemoveTodo list="titles" />
-      </>
+      </ScreenContainer>
     )
   }
 }
@@ -17,11 +18,5 @@ class HomeScreen extends React.Component {
 // Header properties of the screen
 export default withHeader({
   // Title of the header
-  title: 'Home',
-  // The icon on the header
-  icon: {
-    right: 'plus'
-  },
-  // The icon event on touch
-  navigateTo: 'CreateTitle'
+  title: 'Home'
 })(HomeScreen)

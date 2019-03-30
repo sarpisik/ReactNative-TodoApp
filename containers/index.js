@@ -1,5 +1,5 @@
 import RemoveTodo from './RemoveTodo'
-import AddTitle from './AddTitle'
 import AddTodo from './AddTodo'
+import TodoList from './TodoList'
 
-export { RemoveTodo, AddTitle, AddTodo }
+export { RemoveTodo, AddTodo, TodoList }

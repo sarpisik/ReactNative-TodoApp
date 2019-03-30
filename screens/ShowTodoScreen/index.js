@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
-import { TouchableWithoutFeedback } from 'react-native'
 import { ScreenContainer } from '../../components'
-import { RemoveTodo, AddTodo } from '../../containers'
-import { withHeader, TodoList } from '../../components'
+import { RemoveTodo, AddTodo, TodoList } from '../../containers'
+import { withHeader } from '../../components'
 
 class ShowTodoScreen extends PureComponent {
   render() {
@@ -10,8 +9,8 @@ class ShowTodoScreen extends PureComponent {
     const { id } = this.props.navigation.state.params
     return (
       <ScreenContainer>
-        <TodoList list="todos" id={id} />
         <AddTodo id={id} theme={this.props.theme} />
+        <TodoList list="todos" id={id} />
         <RemoveTodo list="todos" id={id} />
       </ScreenContainer>
     )

@@ -3,12 +3,17 @@ import { Button } from 'react-native-elements'
 import ACTIONS from '../../../constants'
 import { styles } from '../../../themes'
 
-export default ({ count, removeTodo, list, id }) =>
+// If any category/todo toggled, display the button with the number of toggled.
+// Else, hide the button.
+export default ({ count, removeTodo, list, id, colors }) =>
   count ? (
     <Button
-      buttonStyle={styles.removeButton}
+      buttonStyle={[
+        styles.removeButton,
+        { backgroundColor: colors.tertiary, borderTopColor: colors.primary }
+      ]}
       title={`Remove (${count})`}
-      titleStyle={styles.headerText}
+      titleStyle={[styles.headerText, { color: colors.primary }]}
       onPress={() =>
         removeTodo(
           list === 'titles'
