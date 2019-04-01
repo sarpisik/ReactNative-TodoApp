@@ -4,10 +4,7 @@
     "slug": "todoapp",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -25,9 +22,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "description": "This is a React native Todo App project.\nCurrently works properly on Android devices.\n\nCredits:\n-React Native Expo\n-React Redux\n-React Navigation\n-React Native Elements",
     "githubUrl": "https://github.com/sarpisik/ReactNative-TodoApp"
   }
