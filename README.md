@@ -51,5 +51,3 @@ npm start
 ## Authors
 
 - **Sarp Işık** - [Portfolio](https://www.sarpisik.com/)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
